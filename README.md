@@ -1,5 +1,7 @@
 ![alt tag](https://github.com/1N3/Sn1per/blob/master/Sn1per.jpg)
 
+[![Git](https://app.soluble.cloud/api/v1/public/badges/07db1e6f-2faf-4f67-8dd4-8c8ce2132d77.svg?orgId=320408544746)](https://app.soluble.cloud/repos/details/github.com/jsoehner/sn1per?orgId=320408544746)  
+
 [![GitHub release](https://img.shields.io/github/release/1N3/Sn1per.svg)](https://github.com/1N3/Sn1per/releases) 
 [![GitHub issues](https://img.shields.io/github/issues/1N3/Sn1per.svg)](https://github.com/1N3/Sn1per/issues) 
 [![Github Stars](https://img.shields.io/github/stars/1N3/Sn1per.svg?style=social&label=Stars)](https://github.com/1N3/Sn1per/) 
