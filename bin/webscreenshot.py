@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # This file is part of webscreenshot.
@@ -331,11 +331,16 @@ def craft_cmd(url_and_options):
         cmd_parameters.append('header="Cookie: %s"' % options.cookie.rstrip(';')) if options.cookie != None else None
         
         cmd_parameters.append('http_username="%s"' % options.http_username) if options.http_username != None else None
-        cmd_parameters.append('http_password="%s"' % options.http_password) if options.http_password != None else None
+
+        log_cmd_parameters = list(cmd_parameters)
+        if options.http_password != None:
+            cmd_parameters.append('http_password="%s"' % options.http_password)
+            log_cmd_parameters.append('http_password="***"')
         
         if options.header:
             for header in options.header:
                 cmd_parameters.append('header="%s"' % header.rstrip(';'))
+                log_cmd_parameters.append('header="%s"' % header.rstrip(';'))
     
     # Chrome and chromium renderers
     else: 
@@ -354,10 +359,12 @@ def craft_cmd(url_and_options):
                             '"%s"' % url
         ]
         cmd_parameters.append('--proxy-server="%s"' % options.proxy) if options.proxy != None else None
+        log_cmd_parameters = list(cmd_parameters)
     
     cmd = " ".join(cmd_parameters)
+    log_cmd = " ".join(log_cmd_parameters)
     
-    logger_url.debug("Shell command to be executed\n'%s'\n" % cmd)
+    logger_url.debug("Shell command to be executed\n'%s'\n" % log_cmd)
     
     execution_retval = shell_exec(url, cmd, options)
     

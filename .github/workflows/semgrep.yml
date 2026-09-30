@@ -11,9 +11,16 @@ on:
   # random HH:MM to avoid a load spike on GitHub Actions at 00:00
   - cron: 2 23 * * *
 name: Semgrep
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   semgrep:
     name: semgrep/ci
+    permissions:
+      contents: read
+      security-events: write
     runs-on: ubuntu-20.04
     env:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
@@ -22,3 +29,4 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - run: semgrep ci
+
